@@ -55,3 +55,37 @@ Time complexity is an abstract concept that is used to assess the time it takes 
     - O(n^2): Algorithms like bubble, selection, and insertion sorts belong here. However, they are only good for a data structure that stores a small amount of elements. Larger datasets would cause a quadratic increase in time consumed per operation.
     - O(n log(n)): This is the quickest algorithm time complexity.
 
+2.4 Bubble sort
+
+Bubble sorting is ordering arrays in ascending order. How does it do this?
+
+1. It iterates through the array one value at a time.
+2. It compares two values that are adjacent to each other.
+3. If current value is higher than the adjacent value, it swaps the value so that the highest value is placed later in the array.
+4. This repeats until everything is sorted accordingly.
+
+How to implement?
+
+1. First loop is used to define the number of passes. This determines how many times the program checks the array over and over again.
+2. The second loop is the comparator, which compares the two adjacent values. 
+3. If current value is higher than the adjacent value, they swap.
+4. This is repeated for that pass, and goes on for n-1 passes.
+
+Let's make this in Python and Java:
+
+For Python:
+
+some_array = [7, 3, 9, 12, 11]
+
+n = len(some_array)
+for i in range(n-1):
+	not_swapped = False
+	for j in range(n-i-1):
+		if some_array[j] > some_array[j+1]:
+			some_array[j], some_array[j+1] = some_array[j+1], some_array[j]
+		not_swapped = True
+	
+	if !(not_swapped):
+		break
+
+print(some_array)
