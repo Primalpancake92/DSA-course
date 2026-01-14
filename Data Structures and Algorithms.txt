@@ -126,4 +126,70 @@ public class bubbleSort {
 		System.out.println("Bubble sorted array: " + Arrays.toString(someArray));
 			
 	}
-}
+} 
+
+As an exercise, try to make a bubble sort algorithm that sorts everything in descending order. 
+
+2.5 Selection sort
+
+The selection sort algorithm is similar to the bubble sort in terms of purpose. It can also order
+elements in an array from ascending or descending order. However, how it achieves this, and its 
+implementation, differ.
+
+How it works:
+
+	1. It runs through n-1 passes (excluding the first pass due to redundancy of the first element).
+	2. It establishes the first element as the preconceived lowest value. 
+	3. The second iterator checks for any values, apart from the first, being lower than the first 
+	   element.
+	4. If it is lower, swap the smaller value to the first position due to it being the 'lowest'.
+	5. Repeat.
+
+Its implementation:
+
+In python: 
+
+def selection_sort(some_array: list[int]):
+	n = len(some_array)
+	for i in range(n-1):
+		min_index = i
+		for j in range(i+1, n):
+			if some_array[j] < some_array[min_index]:
+				min_index = j
+			some_array[i], some_array[min_index] = some_array[min_index], some_array[i]
+
+
+if __name__ == "__main__":
+	arr = [5, 10, 12, 15, 88, 45]
+		
+	print(arr)
+	
+	selection_sort(arr)
+	
+	print(arr)
+
+2.6 Insertion sort
+
+Note that insertion sort is not the same in programmatic semantics and logic, as it does not possess
+the active intervention of swapping of array elements. It rather builds the sorted array through an 
+approach of building one part of the array to be the sorted part and the other is the to be sorted 
+part. The biggest feature is that it assumes the first element of the array is already 'sorted', so
+it iterates from 1 to n and does the sorting in this range.
+
+How does it work?	
+
+	1. Take the first value of the unsorted array and performs a check to see if it is ordered.
+	2. If not ordered or sorted properly, it moves the value to the sorted array.
+	3. In the sorted portion, if not arranged correctly, it would shift it slowly to its right position.
+	4. This is repeated for the unsorted portion of the array, until it is completely sorted.
+
+A deep analysis:
+
+The first element is always the 'sorted' part of the array. So the algorithm checks for the second 
+value, and sees if it is greater than or less than the first value. If it is not greater than, then
+it must be moved to the left and is sorted. The hardest part is understanding how it works programmatically.
+We will do the implementation first, then the break it down.
+
+Implementation:
+
+
