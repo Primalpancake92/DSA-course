@@ -192,4 +192,54 @@ We will do the implementation first, then the break it down.
 
 Implementation:
 
+Python: 
 
+some_array = [50, 20, 23, 15, 0, 2, 40]
+
+print("Original array: ", some_array)
+
+n = len(some_array)
+for i in range(1, n):
+	insert_index = i // stores the insertion marker
+	current_element = some_array[i] // current element stored here
+	for j in range(i-1, -1, -1): // inside the sorted part 
+		if some_array[j] > current_element: 
+			some_array[j+1] = some_array[j]
+			insert_index = j
+		else:
+			break
+	some_array[insert_index] = current_element
+
+print("Sorted array: ", some_array)
+
+Java:
+
+class Main {
+	static void insertionSort(int[] arr) {
+		int n = arr.length; 
+		int insertIndex;
+		int currentElement;	
+	
+		for (int i = 1; i < n; i++) {
+			insertIndex = i;
+			currentElement = arr[i];
+			for (int j = i - 1; j >= 0; i--) {
+				if (arr[j] > currentElement) {
+					arr[j+1] = arr[j]
+					insertIndex = j;
+				} else {
+					break;
+				}
+			}
+			arr[insertIndex] = currelElement;
+		}
+	}
+	
+	static void main(String[] args) {
+		int[] someArray = {90, 70, 50, 30, 10};
+
+		System.out.println("Original array: " + someArray);
+		
+		System.out.println("Sorted array: " + insertionSort(someArray));
+	}	
+}
