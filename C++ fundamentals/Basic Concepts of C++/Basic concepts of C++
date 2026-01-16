@@ -23,6 +23,30 @@ Variables: Symbolic name of quantity of data. This name can be used to access th
 
 Objects: Objects are just instances of classes or structs. In the general sense, it is used for all types, including scalar variables.
 
-POD (plain old data) types: Refers to scalar types or are of POD classes. It has no data members, no user defined constructors, user defined destructors, or user defined assignment operators, It is mainly for external data interchange 
+POD (plain old data) types: Refers to scalar types or are of POD classes. It has no data members, no user defined constructors, user defined destructors, or user defined assignment operators, It is mainly for external data interchange.
 
+Specification of variable and function types: 
 
+C++ is strongly and statically typed. This means anything that holds data needs to have a type and this type never changes. This means you must define the type for a variable or use the 'auto' type for the compiler to choose what best fits from the initialiser.
+
+In a function, you must declare the type it returns and in every argument. If there is nothing returned then use the void type, except function templates which allow for returns of arbitrary types. 
+
+Copying variable values or function return values into another variable of another type is permitted in C++, in the context of type conversions which can lead to loss of accuracy, data, and lead to incorrectness of data.
+
+Declaring values of POD types, it HIGHLY recommnded you initialised, meaning to give it an initial value. If not initialised, it will have a garbage value that consists of the number of bits in that memory address previously. This could lead to errors and even program crashes. This principle should also apply to all variable types and initialising it is often better, as the compiler trusts you to manually do things the right way. 
+
+Here are some examples of good initialisation:
+
+int result = 90;
+
+double coefficient = 10.0;
+
+auto name = "Lady G.";
+
+string msg = "This is a message";
+
+Built-in types:
+
+These are values that are stored in an unspecified location in memory as bits. Despite it not knowing the specific location, it can refer to the location by name. What it does need to know is the type of data the variable is storing. The reason why the data type is important is because the amount of memory required for each of these fundamental/built-in/primitives are all different. 
+
+Below are data types, memory size, type names, and range. Once you understand, this we will start on the more fun stuff. 
