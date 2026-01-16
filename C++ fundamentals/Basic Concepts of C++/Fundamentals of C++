@@ -1,0 +1,5 @@
+Introduction to C++:
+
+C++ is a language that provides low level control of hardware making the language highly efficient, and provides a set of standard libraries. It can be used to make games, apps, drivers, HPC, cloud, etc. It is a language that is an extension of C.
+
+C++ is an object oriented, meaning it supports objects like Java and Python. C, on the other hand, does not. The way you code in C++ is going to be very different to how you would code in Java, Python, JavaScript, and other high level languages. 

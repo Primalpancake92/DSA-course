@@ -1,0 +1,28 @@
+The basic concepts of C++:
+
+There are many concepts that are important for C++, and it is important that you learn these fundamentals well.
+
+C++ type system:
+
+The most important concept in this part of C++ is that everything in C++ must yield a type. Every variable, function argument, and function return value must have a type for the compiler to compile the program. This menas that the language is strongly typed and a statically typed language. So how does the compiler work and how the compiler may help you in the long term of programming something. 
+
+The compilation process consists of 3 main steps:
+	1. Preprocessing: Takes your C++ src code preprocessor directives (aka anything that starts with a '#'), then produces a preprocessed src file.
+	2. Compiler: This is when the preprocessed file is processed to object files, but also does some semantic and syntax checking and accepting promises from the code about things defi	       ned in other source code.
+	3. Linker: Takes object files and links them into an executable file which ensures that all promises to the compiler are kept.	
+
+Types can be built-in or have custom definitons. Built-in types can include int, float, bool, or standard library types (std::cout). Custom types are something you build using class or struct. Each type has a set number of memory to store the value of a specific type, which dictate how the compiler interprets this data in bits and the things you can do with it.
+
+Some terminology: 
+
+A scalar: A type that holds a single value of a defined range. These could be arithmetic, enumeration type members, pointers, pointer to member, and null pointers (std::nullptr_t). Fundamental types are mostly scalar types. This is for simpler data.
+
+Compound: A type that is non-scalar, which can include: arrays, function types, class or struct types, enumerations, references, and pointers to non static class members (methods and vars tied to an instance class). This is for more complex data.
+
+Variables: Symbolic name of quantity of data. This name can be used to access the quantity in the scope of definition. These are often referred to as instances of scalar data types, and instances of other types are typically objects. 
+
+Objects: Objects are just instances of classes or structs. In the general sense, it is used for all types, including scalar variables.
+
+POD (plain old data) types: Refers to scalar types or are of POD classes. It has no data members, no user defined constructors, user defined destructors, or user defined assignment operators, It is mainly for external data interchange 
+
+
