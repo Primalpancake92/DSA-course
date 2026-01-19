@@ -185,10 +185,16 @@ How does it work?
 
 A deep analysis:
 
-The first element is always the 'sorted' part of the array. So the algorithm checks for the second 
-value, and sees if it is greater than or less than the first value. If it is not greater than, then
-it must be moved to the left and is sorted. The hardest part is understanding how it works programmatically.
-We will do the implementation first, then the break it down.
+Taking a deeper look, it is going to be hard to understand the algorithm without breaking it down or going
+into depth about how it works. The loop initially assumes that the first element of the array is already 
+sorted, which would ultimately mark the second element as the unsorted part. The algorithm would then mark
+this part the current element. 
+
+The second loop that concerns the element that is before the 'current element'. If the previous element 
+is greater than the 'current element', the loop would iteratively swap the previous element from the 
+current element, until the condition no longer satisfies. Then after breaking from the loop, the 
+algorithm would, set the new 'current element' (the break between the new sorted and unsorted parts).
+This would repeat until the array is completely sorted in ascending order.  
 
 Implementation:
 
@@ -231,7 +237,7 @@ class Main {
 					break;
 				}
 			}
-			arr[insertIndex] = currelElement;
+			arr[insertIndex] = currentElement;
 		}
 	}
 	
@@ -243,3 +249,38 @@ class Main {
 		System.out.println("Sorted array: " + insertionSort(someArray));
 	}	
 }
+
+2.7 Quick sort:
+
+This is one of the quickest sorting algorithms. It works by choosing a value as the pivot value, and moves
+the other values so that lower values are on the elft of the pivot and higher values are on the right of it.
+
+THis algorithm is quite different to the other algorithsm we have learned because there are two mechanisms,
+which is the determination of the pivot value, and the sorting function itself.
+
+Its approach is to choose a pivot and then rearrange this pivot based on the shift condition. Then once all 
+the values are shifted and the pivot is shifted, it returns the elements prior and after the newly shifted 
+pivot. This is done recursively until the array is sorted.
+
+Now lets write a sample implementation in pseudocode.
+
+FUNCTION partition (array, low, high): 
+	pivot = array[high]
+	low = i - 1
+	
+	FOR j in range(low, high):
+		IF array[j] <= pivot:
+			i += 1
+			array[i], array[j] = array[j], array[i]
+	
+	array[i+1], array[high] = array[high], array[i+1]
+	return i + 1
+
+FUNCTION quick_sort (array, low=0, high=none):
+	IF high IS None: 
+		high = len(array) - 1
+
+	IF low < high:
+		pivot_index = partition(array, low, high)
+		quick_sort(array, low, pivot_index + 1)
+		quick_sort(array, pivot_index-1, high)
