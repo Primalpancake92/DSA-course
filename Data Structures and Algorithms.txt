@@ -132,9 +132,8 @@ As an exercise, try to make a bubble sort algorithm that sorts everything in des
 
 2.5 Selection sort
 
-The selection sort algorithm is similar to the bubble sort in terms of purpose. It can also order
-elements in an array from ascending or descending order. However, how it achieves this, and its 
-implementation, differ.
+The selection sort algorithm has one key principle, finding the lowest out of all values and move
+it to the left side of the array.
 
 How it works:
 
@@ -142,8 +141,8 @@ How it works:
 	2. It establishes the first element as the preconceived lowest value. 
 	3. The second iterator checks for any values, apart from the first, being lower than the first 
 	   element.
-	4. If it is lower, swap the smaller value to the first position due to it being the 'lowest'.
-	5. Repeat.
+	4. If it is lower, it sets the new lowest minimum index as that lower value.
+	5. Once it, finds that this is the lowest possible value, you would swap it with the i-th element.
 
 Its implementation:
 
@@ -170,31 +169,10 @@ if __name__ == "__main__":
 
 2.6 Insertion sort
 
-Note that insertion sort is not the same in programmatic semantics and logic, as it does not possess
-the active intervention of swapping of array elements. It rather builds the sorted array through an 
-approach of building one part of the array to be the sorted part and the other is the to be sorted 
-part. The biggest feature is that it assumes the first element of the array is already 'sorted', so
-it iterates from 1 to n and does the sorting in this range.
-
-How does it work?	
-
-	1. Take the first value of the unsorted array and performs a check to see if it is ordered.
-	2. If not ordered or sorted properly, it moves the value to the sorted array.
-	3. In the sorted portion, if not arranged correctly, it would shift it slowly to its right position.
-	4. This is repeated for the unsorted portion of the array, until it is completely sorted.
-
-A deep analysis:
-
-Taking a deeper look, it is going to be hard to understand the algorithm without breaking it down or going
-into depth about how it works. The loop initially assumes that the first element of the array is already 
-sorted, which would ultimately mark the second element as the unsorted part. The algorithm would then mark
-this part the current element. 
-
-The second loop that concerns the element that is before the 'current element'. If the previous element 
-is greater than the 'current element', the loop would iteratively swap the previous element from the 
-current element, until the condition no longer satisfies. Then after breaking from the loop, the 
-algorithm would, set the new 'current element' (the break between the new sorted and unsorted parts).
-This would repeat until the array is completely sorted in ascending order.  
+Insertion sorting is also simple to understand too. Its principle is to look at the second element, and 
+using the second loop, to compare it with the current element. If any values on the right of the insert
+index satisfies the condition, it shifts all the values to left and changes the insert index to the new
+one. Then lastly insert that temporarily stored current value to the j-th point. Repeats until it is sorted.
 
 Implementation:
 
@@ -252,15 +230,9 @@ class Main {
 
 2.7 Quick sort:
 
-This is one of the quickest sorting algorithms. It works by choosing a value as the pivot value, and moves
-the other values so that lower values are on the elft of the pivot and higher values are on the right of it.
-
-THis algorithm is quite different to the other algorithsm we have learned because there are two mechanisms,
-which is the determination of the pivot value, and the sorting function itself.
-
-Its approach is to choose a pivot and then rearrange this pivot based on the shift condition. Then once all 
-the values are shifted and the pivot is shifted, it returns the elements prior and after the newly shifted 
-pivot. This is done recursively until the array is sorted.
+This is one of the quickest sorting algorithms that is out there. However, comparing it to
+the other two algorithms that we have been exploring. Quick sort is a divide and conquer
+algorithm. This means it will tackle it from two points, thus adding to why it is so quick.
 
 Now lets write a sample implementation in pseudocode.
 
@@ -284,3 +256,14 @@ FUNCTION quick_sort (array, low=0, high=none):
 		pivot_index = partition(array, low, high)
 		quick_sort(array, low, pivot_index + 1)
 		quick_sort(array, pivot_index-1, high)
+
+Let's explain this recrusive approach. So the first function's purpose is to do the physical moving
+of the array elements. It does this by by choosing a pivot (in this case the last value) and using
+the first value 1 before the first value. The for lop is basically iterating through the low to high
+values, and sees if there are any values that are less than or equal to the pivot. If this is the case,
+the lowest value pointer increments and then the pointer that points to the ith and jth element in the
+array gets swapped. Then finally, the first element (i+1) larger than the the pivot, that was originally
+excluded, is swapped with the pivot.
+
+This is returned as the next pivot for the next recursive call. However, this second time, and every time
+after, the 'divide and conquer' approach happens at the last line.
