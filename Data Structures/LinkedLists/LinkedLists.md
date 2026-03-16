@@ -1,4 +1,5 @@
-**# What is a Linked List?**
+#What is a Linked List?
+
 A linked list is a list of sequential list of nodes that hold data whic point to other nodes also containing data.
 
 Data -> Data -> Data -> Data -> null
