@@ -1,0 +1,23 @@
+Stacks:
+Think of a stack like an array that is vertical and pushes the latest data on the top most entry of the ADT. The earliest data sits at the bottom of the stack. There are a list of methods that belong to a stack:
+
+    - push(): this method adds the data element to the top of the stack. Data element is contained inside
+      parentheses.
+    - top(): this returns the most recently added element, which is the top of the stack ADT. Hence,              'top'.
+    - pop(): This removes the top most element of the stack.
+    - size(): Returns the size of the stack.
+
+From, the methods of a stack you can see that it has the behaviour of last in first out (LIFO). You can also even see from the way it lines up, it is similar to a resizeable array or an arrayList. So, a stack is pretty much a subset of the an arrayList.
+
+So, the push() method and the pop() methods are pretty much the same as the push_back() and pop_back() methods the are found in ArrayList.
+
+We can also implement the top() method through the following way:
+
+Let us assume that the stack is called some 'S', and to find out the top most value we can say S[S.size() - 1]. Because the size of the stack is not based on the zero-th indexing, we would add the -1
+at the end of the index.
+
+We can also implement this ADT by setting one of the private field values to be a vector or an ArrayList in Java and some other languages.
+
+Stack problems:
+You cannot move through the stack and start popping elements that are at index i. Therefore, this makes debugging difficult. This would mean that you are giving up a lot of operations without gaining a perforamnce difference, which makes the stack not that useful when it comes to practical applications.
+This is unless you are trying to describe an ADT that does not encourage modification of its data members.
